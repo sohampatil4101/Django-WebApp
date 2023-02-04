@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title> Todo-List Task</title>
+  </head>
+<body>
+  {% if successs %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong> {{err}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endif %}
+<div class="container">
+    <form action="/todo" method="Post">
+        {% csrf_token %}
+        
+      <h2 class="text-center ">Add your todo's here:</h2>
+        <div class="form-group">
+            <label for="task" >Task</label>
+            <input type="text"  class="form-control" id="task" name="task" placeholder="Enter your task ">
+          </div>
+
+          
+        <div class="form-group">
+          <label for="description">Description  </label>
+          <textarea class="form-control" id="description" row="3" name="description" placeholder="Enter a discription"></textarea>
+        </div>  
+    <button type="submit" class="btn btn-primary" >Submit</button>
+    
+  </form>
+</div>
+
+
+
+
+
+
+<div class="container">
+  <form action="/todolist">
+      {% csrf_token %}
+      
+    <h2> Your todo's list here:  <button type="submit" class="btn btn-primary" >List</button></h2>
+  
+</form>
+</div>
+
+
+<div class="container">
+  <form action="/" >
+      {% csrf_token %}
+      
+    <h2>Logout   <button type="submit" class="btn btn-primary" >Logout</button> </h2>
+  
+</form>
+</div>
+    <p class="mt-5 mb-3 text-muted text-center  text-dark fixed-bottom my-03 py-13">Copyright &copy; 2023| All Rights Reserved</p> 
+</body>
+</html>
